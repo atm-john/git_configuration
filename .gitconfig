@@ -1,0 +1,15 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	addm = !git-ls-files -m -z | xargs -0 git-add && git status
+	addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
+	rename = branch -m
+	conflicts = diff --name-only --diff-filter=U
+	dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
+[user]
+	name = x
+	email = x@x.x
+[color]
+	ui = auto
