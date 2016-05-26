@@ -1,6 +1,6 @@
 [alias]
 	co = checkout
-	br = branch
+	br = branch -v
 	ci = commit
 	st = status
 	addm = !git-ls-files -m -z | xargs -0 git-add && git status
@@ -8,6 +8,10 @@
 	rename = branch -m
 	conflicts = diff --name-only --diff-filter=U
 	dad = !"git show-branch -a | ack '\\*' | ack -v \"`git rev-parse --abbrev-ref HEAD`\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
+	rev = remote -v
+	si = submodule init
+	su = submodule update
+	delete-branch = "!f() { cur_br=$(git rev-parse --abbrev-ref HEAD); if [ \"$cur_br\" = \"$2\" ]; then git checkout master; fi; git push $1 --delete $2; git branch -D $2; }; f"
 [user]
 	name = x
 	email = x@x.x
