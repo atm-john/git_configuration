@@ -17,3 +17,5 @@
 	email = x@x.x
 [color]
 	ui = auto
+[core]
+	pager = less -x1,5
