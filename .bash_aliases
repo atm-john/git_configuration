@@ -15,4 +15,4 @@ if [[ "$git_completion" ]]; then
     fi
 fi
 
-alias lsgit='paste <(ls -ld --color=always *) <(for i in *; do if [ -d "$i"/.git ] ; then echo -e "\033[1;31m($(git --git-dir="$i"/.git symbolic-ref --short HEAD))\033[0m"; else echo; fi; done)'
+alias lsgitremote='paste  <(for i in *; do if [ -d "$i"/.git ] ; then echo -e "git clone -b \033[1;31m$(git --git-dir="$i"/.git symbolic-ref --short HEAD)\033[0m $(git  --git-dir="$i"/.git  config --get remote.origin.url) $i"; else echo; fi; done)'
